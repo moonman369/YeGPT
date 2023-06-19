@@ -1,0 +1,162 @@
+body {
+  background-color: #363636;
+}
+
+/* chatbot */
+.chat-bot-header {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #6e6f70;
+  margin-top: 2px !important;
+  margin-bottom: 2px Im !important;
+}
+
+.chat-container {
+  width: 100%;
+  background-color: #131313;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80vh;
+  margin-top: 50px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.chat-window {
+  background-color: #131313;
+  border-radius: 10px;
+  padding: 10px;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.user-message {
+  background-color: #007aff;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 70%;
+}
+
+.bot-message {
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  padding: 10px;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 70%;
+}
+
+.message-text {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.user-image {
+  margin-left: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+.form input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.form button[type="submit"] {
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.typing-bubble {
+  width: 50px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  /* background-color: #fff; */
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #b6b6b6;
+  font-weight: 600;
+}
+
+.name {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.back-button {
+  font-size: 24px;
+  color: #007aff;
+}
+
+.video-icon {
+  font-size: 24px;
+  color: #007aff;
+}
+
+.ref-link {
+  color: #c53aae;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.bot-image {
+  margin-right: 10px;
+}
