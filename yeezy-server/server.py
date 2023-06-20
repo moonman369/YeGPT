@@ -35,6 +35,8 @@ def kanye_bot():
         port = 3306
         database = "mindsdb"
 
+        # "mysql+pymysql://mightyayan26@gmail.com:ayan#123@cloud.mindsdb.com:3306/mindsdb"
+
         # initializing the db connection
         def get_connection(user, password, host, port, database):
             return create_engine(

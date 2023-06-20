@@ -18,7 +18,7 @@ function iMessage() {
     setKanyeTyping(true);
     axios
       .post(
-        "http://localhost:8080/bot",
+        "http://localhost:5000/bot",
         {
           message: userInput,
         },
