@@ -13,6 +13,11 @@ CORS(
 )  # Set CORS headers for all routes
 
 
+@app.route("/")
+def home():
+    return "<h1>Welcome to YeGPT Backend</h1>"
+
+
 @app.route("/bot", methods=["POST"])
 def kanye_bot():
     try:
