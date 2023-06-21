@@ -11,52 +11,55 @@ function iMessage() {
     setUserInput(event.target.value);
   };
   console.log(messages);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const newMessage = { user: true, text: userInput };
-    setMessages([...messages, newMessage, { user: false, text: "loading" }]);
-    setKanyeTyping(true);
-    axios
-      .post(
-        "http://localhost:5000/bot",
-        {
-          message: userInput,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
+    if (userInput) {
+      const newMessage = { user: true, text: userInput };
+      setMessages([...messages, newMessage, { user: false, text: "loading" }]);
+      setKanyeTyping(true);
+      axios
+        .post(
+          "https://ye-gpt-backend.vercel.app/bot",
+          {
+            message: userInput,
           },
-          withCredentials: true,
-        }
-      )
-      .then((response) => {
-        console.log(response);
-        // Update messages and setKanyeTyping to false when you receive the response
-        const botResponse = {
-          user: false,
-          text: response.data.results[0].response,
-        };
-        setMessages([...messages, newMessage, botResponse]);
-        setKanyeTyping(false);
-      })
-      .catch((error) => {
-        console.error(error);
-        // Update messages and setKanyeTyping to false when you receive an error
-        const botResponse = {
-          user: false,
-          text: "Oops! Something went wrong.",
-        };
-        setMessages([...messages, newMessage, botResponse]);
-        setKanyeTyping(false);
-      });
-    setUserInput("");
-    setKanyeTyping(true);
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        )
+        .then((response) => {
+          console.log(response);
+          // Update messages and setKanyeTyping to false when you receive the response
+          const botResponse = {
+            user: false,
+            text: response.data.results[0].response,
+          };
+          setMessages([...messages, newMessage, botResponse]);
+          setKanyeTyping(false);
+        })
+        .catch((error) => {
+          console.error(error);
+          // Update messages and setKanyeTyping to false when you receive an error
+          const botResponse = {
+            user: false,
+            text: "Oops! Something went wrong.",
+          };
+          setMessages([...messages, newMessage, botResponse]);
+          setKanyeTyping(false);
+        });
+      setUserInput("");
+      setKanyeTyping(true);
+    }
   };
 
   return (
     <>
       <Head>
-        <title>Kanye West Chatbot - Metaschool</title>
+        <title>YeGPT Chatbot - moonman369</title>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -85,6 +88,17 @@ function iMessage() {
               rel="noopener noreferrer"
             >
               metaschool 🔮
+            </a>
+          </p>
+          <p className="chat-bot-header">
+            Developed by{" "}
+            <a
+              className="ref-link"
+              href="http://devfoliomoonman369.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              moonman369
             </a>
           </p>
           {messages.map((message, index) => (
