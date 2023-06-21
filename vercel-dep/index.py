@@ -9,7 +9,7 @@ load_dotenv()
 
 app = Flask(__name__)
 CORS(
-    app, origins="http://localhost:3000", supports_credentials=True
+    app, origins=["http://localhost:3000"], supports_credentials=True
 )  # Set CORS headers for all routes
 
 
@@ -59,7 +59,7 @@ def kanye_bot():
         # Run the query
         with engine.connect() as eng:
             query = eng.execute(
-                f"SELECT response from mindsdb.ye_gpt_6 WHERE author_username = '@user' AND text='{message}';"
+                f"SELECT response from mindsdb.ye_gpt_7 WHERE author_username = '@user' AND text='{message}';"
             )
             results = []
             for row in query:
