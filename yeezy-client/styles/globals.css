@@ -33,9 +33,13 @@ body {
 .chat-window {
   background-color: #131313;
   border-radius: 10px;
-  padding: 5px;
+  padding: 15px;
   height: 70vh;
   overflow-y: scroll;
+}
+
+.chat-window::-webkit-scrollbar {
+  display: none;
 }
 
 .message-container {
@@ -71,13 +75,26 @@ body {
   max-width: 70%;
 }
 
+input:hover {
+  border: 2px solid #007aff;
+  transition: all 500ms;
+}
+
 .message-text {
   font-family: "Helvetica", "Arial", sans-serif;
 }
 
+.header-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #c53aae;
+  margin-bottom: 4px;
+}
+
 .profile-image {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 
@@ -114,6 +131,11 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.form button[type="submit"]:hover {
+  background-color: #3ac5a7;
+  transition: all 450ms;
 }
 
 .typing-bubble {
