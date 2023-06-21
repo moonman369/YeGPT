@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import axios from "axios";
 
-function iMessage() {
+function YeChat() {
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [kanyeTyping, setKanyeTyping] = useState(false);
@@ -155,4 +155,4 @@ function iMessage() {
   );
 }
 
-export default iMessage;
+export default YeChat;
