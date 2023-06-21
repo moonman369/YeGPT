@@ -58,7 +58,7 @@ function YeChat() {
   return (
     <>
       <Head>
-        <title>YeGPT Chatbot - moonman369</title>
+        <title>YeGPT - Kanye West AI Chatbot</title>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -97,7 +97,7 @@ function YeChat() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              moonman369
+              moonman369 🎆
             </a>
           </p>
           {messages.map((message, index) => (
