@@ -10,12 +10,7 @@ load_dotenv()
 app = Flask(__name__)
 CORS(
     app,
-    origins=[
-        "https://yegpt-0.vercel.app",
-        "https://yegpt-0-git-master-moonman369-pro.vercel.app",
-        "http://localhost:3000",
-        "https://yegpt-0-moonman369-pro.vercel.app",
-    ],
+    origins="*",
     supports_credentials=True,
 )  # Set CORS headers for all routes
 
