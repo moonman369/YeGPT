@@ -27,7 +27,6 @@ def kanye_bot():
             "Access-Control-Allow-Origin": "https://yegpt-0.vercel.app",
             "Access-Control-Allow-Methods": "POST",
             "Access-Control-Allow-Headers": "Content-Type",
-            "Access-Control-Allow-Credentials": "true",
         }
 
         # Get the request data
