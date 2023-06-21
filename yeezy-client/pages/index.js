@@ -1,16 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 
 function YeChat() {
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState([]);
+  const [cookies, setCookies] = useCookies({
+    messages: [],
+  });
   const [kanyeTyping, setKanyeTyping] = useState(false);
+
+  useEffect(() => {
+    setMessages(cookies?.messages || []);
+  }, []);
 
   const handleChange = (event) => {
     setUserInput(event.target.value);
   };
-  console.log(messages);
+  // console.log(messages);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -20,6 +28,7 @@ function YeChat() {
       setKanyeTyping(true);
       axios
         .post(
+          // "http://localhost:8080/bot",
           "https://ye-gpt-backend.vercel.app/bot",
           {
             message: userInput,
@@ -37,6 +46,7 @@ function YeChat() {
             user: false,
             text: response.data.results[0].response,
           };
+          setCookies("messages", [...messages, newMessage, botResponse]);
           setMessages([...messages, newMessage, botResponse]);
           setKanyeTyping(false);
         })
@@ -47,6 +57,7 @@ function YeChat() {
             user: false,
             text: "Oops! Something went wrong.",
           };
+          setCookies("messages", [...messages, newMessage, botResponse]);
           setMessages([...messages, newMessage, botResponse]);
           setKanyeTyping(false);
         });
