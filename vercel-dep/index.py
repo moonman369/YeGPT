@@ -59,7 +59,7 @@ def kanye_bot():
         # Run the query
         with engine.connect() as eng:
             query = eng.execute(
-                f"""SELECT response from mindsdb.ye_gpt_6 WHERE author_username = '@user' AND text="{message}";"""
+                f"""SELECT response from mindsdb.ye_gpt_9 WHERE author_username = '@user' AND text="{message}";"""
             )
             results = []
             for row in query:
