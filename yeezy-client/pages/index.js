@@ -12,7 +12,13 @@ function YeChat() {
   const [kanyeTyping, setKanyeTyping] = useState(false);
 
   useEffect(() => {
-    setMessages(cookies?.messages || []);
+    const local = localStorage.getItem("messages");
+    localStorage.clear();
+    localStorage.setItem("messages", local);
+
+    setMessages(
+      JSON.parse(localStorage.getItem("messages")) || cookies?.messages || []
+    );
   }, []);
 
   const handleChange = (event) => {
@@ -47,6 +53,10 @@ function YeChat() {
             text: response.data.results[0].response,
           };
           setCookies("messages", [...messages, newMessage, botResponse]);
+          localStorage.setItem(
+            "messages",
+            JSON.stringify([...messages, newMessage, botResponse])
+          );
           setMessages([...messages, newMessage, botResponse]);
           setKanyeTyping(false);
         })
@@ -58,6 +68,10 @@ function YeChat() {
             text: "Oops! Something went wrong.",
           };
           setCookies("messages", [...messages, newMessage, botResponse]);
+          localStorage.setItem(
+            "messages",
+            JSON.stringify([...messages, newMessage, botResponse])
+          );
           setMessages([...messages, newMessage, botResponse]);
           setKanyeTyping(false);
         });
