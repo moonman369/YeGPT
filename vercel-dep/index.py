@@ -10,13 +10,8 @@ load_dotenv()
 app = Flask(__name__)
 CORS(
     app,
-    origins="https://yegpt-0.vercel.app",
+    origins="http://localhost:3000",
 )  # Set CORS headers for all routes
-
-
-@app.route("/")
-def home():
-    return "<h1>Welcome to YeGPT Backend</h1>"
 
 
 @app.route("/bot", methods=["POST"])
@@ -24,7 +19,7 @@ def kanye_bot():
     try:
         # Set CORS headers for the response
         headers = {
-            "Access-Control-Allow-Origin": "https://yegpt-0.vercel.app",
+            "Access-Control-Allow-Origin": "http://localhost:3000",
             "Access-Control-Allow-Methods": "POST",
             "Access-Control-Allow-Headers": "Content-Type",
         }
@@ -59,7 +54,7 @@ def kanye_bot():
         # Run the query
         with engine.connect() as eng:
             query = eng.execute(
-                f"""SELECT response from mindsdb.ye_gpt_9 WHERE author_username = '@user' AND text="{message}";"""
+                f"""SELECT response from mindsdb.ye_gpt_20 WHERE author_username = '@user' AND text="{message}";"""
             )
             results = []
             for row in query:
