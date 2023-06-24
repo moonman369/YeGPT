@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import axios from "axios";
 import { useCookies } from "react-cookie";
@@ -10,6 +10,15 @@ function YeChat() {
     messages: [],
   });
   const [kanyeTyping, setKanyeTyping] = useState(false);
+  const msgContainer = useRef(null);
+
+  useEffect(() => {
+    const lastMsg = msgContainer?.current?.lastElementChild;
+    console.log(lastMsg);
+    lastMsg?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }, [messages]);
 
   useEffect(() => {
     const local = localStorage.getItem("messages");
@@ -103,6 +112,10 @@ function YeChat() {
           <i className="fa fa-video-camera video-icon"></i>
         </div>
         <div className="chat-window">
+          {/* <div id="scroller" ref={chatWindowRef} onLoad={scrollBottom}>
+            
+          </div> */}
+
           <p className="chat-bot-header">
             Powered by{" "}
             <a
@@ -126,7 +139,7 @@ function YeChat() {
             </a>
           </p>
           {messages.map((message, index) => (
-            <div key={index} className="message-container">
+            <div key={index} className="message-container" ref={msgContainer}>
               {message.user ? (
                 <>
                   <div className="user-message message">
